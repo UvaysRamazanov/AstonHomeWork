@@ -7,8 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class CarArrayListTest {
 
@@ -18,46 +17,46 @@ class CarArrayListTest {
 
     @Test
     void addedCars() {
-        assertEquals(list.isEmpty(), true);
+        assertTrue(list.isEmpty());
         for (int i = 0; i < constantNumber; i++) {
             list.add(i, new Car("Car " + i, fixPrice));
             assertEquals(i + 1, list.getSize());
-            assertEquals(list.isEmpty(), false);
+            assertFalse(list.isEmpty());
         }
         assertEquals(constantNumber, list.getSize());
-        assertEquals(list.isEmpty(), false);
+        assertFalse(list.isEmpty());
     }
 
     @Test
     void clear() {
         list.clear();
         assertEquals(0, list.getSize());
-        assertEquals(list.isEmpty(), true);
+        assertTrue(list.isEmpty());
     }
 
     @Test
     void added10Cars() {
-        assertEquals(list.isEmpty(), true);
+        assertTrue(list.isEmpty());
         for (int i = 0; i < 10; i++) {
             list.add(i, new Car("Car " + i, fixPrice));
             assertEquals(i + 1, list.getSize());
         }
         assertEquals(10, list.getSize());
-        assertEquals(list.isEmpty(), false);
+        assertFalse(list.isEmpty());
     }
 
     @Test
     void addAll() {
         list.clear();
-        assertEquals(list.isEmpty(), true);
+        assertTrue(list.isEmpty());
         ArrayList<Car> carsToAdd  = new ArrayList<>();
-        assertEquals(carsToAdd.isEmpty(), true);
+        assertTrue(true);
         for (int i = 0; i < constantNumber; i++) {
             carsToAdd.add(i, new Car("Car " + i, fixPrice));
-            assertEquals(carsToAdd.isEmpty(), false);
+            assertFalse(false);
             assertEquals(i + 1, carsToAdd.size());
         }
-        assertEquals(carsToAdd.isEmpty(), false);
+        assertFalse(carsToAdd.isEmpty());
         assertEquals(constantNumber, carsToAdd.size());
         list.addAll(carsToAdd);
         assertEquals(list.isEmpty(), false);
